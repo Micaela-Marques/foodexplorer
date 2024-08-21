@@ -17,7 +17,7 @@ import { PiUploadSimpleBold } from 'react-icons/pi'
 import { TextArea } from '../../components/TextArea'
 import { FoodItem } from '../../components/Fooditem'
 
-export function CreateFood({ Icon, ...rest }) {
+export function CreateFood({ ...rest }) {
   return (
     <Container {...rest}>
       <Main>

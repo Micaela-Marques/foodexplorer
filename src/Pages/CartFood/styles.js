@@ -4,17 +4,15 @@ import Dish from '../../assets/Dish.png'
 export const Container = styled.div`
   display: grid;
   grid-template-areas:
-    'header'
     'content'
     'footer';
   min-height: 100vh;
+  max-width: 1125px;
+  width: 100%;
+  margin: 0 auto;
 
   .footer {
     grid-area: footer;
-  }
-
-  .header {
-    grid-area: header;
   }
 `
 
@@ -29,7 +27,9 @@ export const Image = styled.div`
 export const Main = styled.div`
   grid-area: content;
   display: flex;
-  justify-content: space-evenly;
+  flex-direction: column;
+  justify-content: center;
+  gap: 43px;
 
   > h1 {
     font-size: 40px;
@@ -43,10 +43,16 @@ export const Main = styled.div`
     color: ${({ theme }) => theme.COLORS.LIGHT_LIGHT_300};
     text-align: center;
   }
+
+  .test2 {
+    display: flex;
+    gap: 47px;
+  }
 `
 
 export const Card = styled.div`
   display: flex;
+  justify-content: flex-start;
   a {
     text-decoration: none;
     color: ${({ theme }) => theme.COLORS.LIGHT_LIGHT_300};

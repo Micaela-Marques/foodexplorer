@@ -10,14 +10,14 @@ export const Container = styled.div`
 `
 
 export const Main = styled.div`
-  max-width: 1368px;
+  max-width: 1125px;
   margin: 0 auto;
   width: 100%;
   gap: 32px;
   height: 104px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
 
   @media (max-width: ${DEVICE_BREAKPOINTS.SM}) {
     width: 100%;
@@ -131,7 +131,8 @@ export const BtnOrders = styled.div`
     align-items: center;
     justify-content: center;
     gap: 5px;
-    max-width: 216px;
+    min-width: 148px;
+    width: 100%;
     width: 100%;
     height: 56px;
   }

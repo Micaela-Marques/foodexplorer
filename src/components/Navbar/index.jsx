@@ -42,7 +42,7 @@ export function Navbar({ userDefault }) {
           <Button
             className="btn-orders"
             Icon={userDefault && (() => <PiReceipt size={32} />)}
-            title={userDefault ? 'Pedidos (0)' : 'Novo pedido'}
+            title={userDefault ? 'Pedidos (0)' : 'Novo Prato'}
             type="button"
           />
         </BtnOrders>
