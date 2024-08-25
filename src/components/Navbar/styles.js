@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 import logoPage from '../../assets/logopage.png'
 import logoAdmin from '../../assets/logoAdmin.png'
-import DeviceLogoAdmin from '../../assets/LogoDevice.png'
 import { DEVICE_BREAKPOINTS } from '../../styles/deviceBreakpoints'
 
 export const Container = styled.div`
@@ -26,35 +25,6 @@ export const Main = styled.div`
     padding: 56px 28px 24px;
     justify-content: space-between;
     background-color: ${({ theme }) => theme.COLORS.DARK_DARK_600};
-
-    .icon-menu {
-      display: block;
-      width: 24px;
-      height: 25px;
-    }
-
-    .btn {
-      > .btn-orders {
-        background: none;
-        width: 32px;
-        height: 32px;
-
-        > .icon {
-          display: block;
-          height: 32px;
-          width: 32px;
-        }
-      }
-
-      .button-text {
-        display: none;
-      }
-      .icon {
-        display: block;
-        min-width: 32px;
-        min-height: 32px;
-      }
-    }
   }
 
   @media (max-width: ${DEVICE_BREAKPOINTS.LG}) {
@@ -135,18 +105,17 @@ export const BtnOrders = styled.div`
     width: 100%;
     width: 100%;
     height: 56px;
-  }
 
-  & .icon {
-    width: 32px;
-    height: 32px;
-  }
+    & .icon {
+      width: 32px;
+      height: 32px;
+    }
 
-  @media (max-width: ${DEVICE_BREAKPOINTS.SM}) {
-    .btn-orders {
+    @media (max-width: ${DEVICE_BREAKPOINTS.SM}) {
       background: none;
       width: 32px;
       height: 32px;
+      min-width: auto;
 
       > .icon {
         display: block;

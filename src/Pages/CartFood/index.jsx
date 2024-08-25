@@ -1,4 +1,13 @@
-import { Container, Main, Image, Section, CardInfo, CardTag, Card } from './styles'
+import {
+  Container,
+  PageProduct,
+  FoodImage,
+  QuantityControl,
+  CardProduct,
+  CardProductDetails,
+  CardTag,
+  GoBack
+} from './styles'
 import { Footer } from '../../components/Footer'
 import { Link } from 'react-router-dom'
 import { FiMinus } from 'react-icons/fi'
@@ -6,24 +15,32 @@ import { IoAdd } from 'react-icons/io5'
 import { Button } from '../../components/Button'
 import { Tag } from '../../components/Tag'
 import { PiCaretLeftBold } from 'react-icons/pi'
+import { useState } from 'react'
 
 export function CartFood({ userDefault, Icon, ...rest }) {
+  const [quantity, setQuantity] = useState(1)
+
+  const handleClick = (qtd) => {
+    const sum = qtd + quantity
+    if (sum > 0) setQuantity(sum)
+  }
+
   return (
     <Container {...rest}>
       {Icon && <Icon size={20} />}
-      <Main>
-        <Card>
+      <PageProduct>
+        <GoBack>
           <PiCaretLeftBold />
           <Link to="/">Voltar</Link>
-        </Card>
+        </GoBack>
 
-        <div className="test2">
-          <Image />
-          <CardInfo>
+        <CardProduct>
+          <FoodImage />
+          <CardProductDetails>
             <h1>Salada Ravanello</h1>
             <p>
-              Rabanetes, folhas verdes e molho agridoce salpicados <br /> com gergelim. O pão naan
-              dá um toque especial.
+              Rabanetes, folhas verdes e molho agridoce salpicados com gergelim. O pão naan dá um
+              toque especial.
             </p>
 
             <CardTag>
@@ -34,19 +51,26 @@ export function CartFood({ userDefault, Icon, ...rest }) {
               <Tag title="rabanete" />
               <Tag title="tomate" />
             </CardTag>
-            <Section>
+
+            <QuantityControl>
               {userDefault && (
                 <>
-                  <FiMinus size={20} />
-                  <span>01</span>
-                  <IoAdd size={20} />
+                  <FiMinus
+                    size={20}
+                    onClick={() => handleClick(-1)}
+                  />
+                  <span>{quantity}</span>
+                  <IoAdd
+                    size={20}
+                    onClick={() => handleClick(1)}
+                  />
                 </>
               )}
               <Button title={userDefault ? 'incluir ∙ R$ 25,00 ' : 'Editar prato'} />
-            </Section>
-          </CardInfo>
-        </div>
-      </Main>
+            </QuantityControl>
+          </CardProductDetails>
+        </CardProduct>
+      </PageProduct>
 
       <Footer classname="footer" />
     </Container>
