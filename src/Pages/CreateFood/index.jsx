@@ -17,7 +17,11 @@ import { PiUploadSimpleBold } from 'react-icons/pi'
 import { TextArea } from '../../components/TextArea'
 import { FoodItem } from '../../components/Fooditem'
 
+import { useParams } from 'react-router-dom'
+
 export function CreateFood({ ...rest }) {
+  const { id } = useParams()
+
   return (
     <Container {...rest}>
       <CreatedProduct>
@@ -30,7 +34,7 @@ export function CreateFood({ ...rest }) {
             <span>Voltar</span>
           </Link>
 
-          <h1>Novo prato</h1>
+          <h1>{id ? 'Editar prato' : 'Novo prato'}</h1>
         </GoBack>
 
         <CardDetails>
@@ -58,24 +62,30 @@ export function CreateFood({ ...rest }) {
         </CardDetails>
 
         <IngredientsCard>
-          <p>Ingredientes</p>
-          <div className="ingredient">
-            <FoodItem
-              className="tag1"
-              value="Pão Naan"
-            />
-            <FoodItem
-              placeholder="Adicionar"
-              className="tag2"
-              isNew
-            />
+          <div className="content-ingredients-card">
+            <div className="description-ingredients">
+              <p>Ingredientes</p>
+              <div className="ingredients-inputs">
+                <FoodItem
+                  className="input-added-ingredient"
+                  value="Pão Naan"
+                />
+                <FoodItem
+                  placeholder="Adicionar"
+                  className="input-new"
+                  isNew
+                />
+              </div>
+            </div>
+            <div>
+              <Input
+                className="price"
+                type="text"
+                label="Preço"
+                placeholder="R$ 00.00"
+              />
+            </div>
           </div>
-          <Input
-            className="price"
-            type="text"
-            label="Preço"
-            placeholder="R$ 00.00"
-          />
         </IngredientsCard>
 
         <Description>
@@ -88,8 +98,15 @@ export function CreateFood({ ...rest }) {
         <SubmitButton>
           <Button
             className="Submit"
-            title="Salvar alterações"
+            title={id ? 'Salvar alterações' : 'Salvar alterações'}
           />
+
+          {id && (
+            <Button
+              className="delete"
+              title="Excluir prato"
+            />
+          )}
         </SubmitButton>
       </CreatedProduct>
 

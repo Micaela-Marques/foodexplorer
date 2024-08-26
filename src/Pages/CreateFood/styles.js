@@ -4,7 +4,9 @@ import { DEVICE_BREAKPOINTS } from '../../styles/deviceBreakpoints'
 export const Container = styled.div`
   display: flex;
   justify-content: center;
+  max-width: 1368px;
   width: 100%;
+  margin: 0 auto;
   padding: 20px;
   padding-bottom: 100px;
 `
@@ -12,13 +14,13 @@ export const Container = styled.div`
 export const CreatedProduct = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 0 auto;
   justify-content: center;
+  width: 1120px;
   width: 100%;
   gap: 24px;
 
-  @media (min-width: ${DEVICE_BREAKPOINTS.MD}) {
-    max-width: 1328px;
+  @media (min-width: ${DEVICE_BREAKPOINTS.SM}) {
+    max-width: 1120px;
     width: 100%;
     margin: 0 auto;
     display: flex;
@@ -66,8 +68,8 @@ export const CardDetails = styled.div`
     color: ${({ theme }) => theme.COLORS.LIGHT_LIGHT_300};
   }
 
-  @media (min-width: ${DEVICE_BREAKPOINTS.MD}) {
-    max-width: 1328px;
+  @media (min-width: ${DEVICE_BREAKPOINTS.SM}) {
+    max-width: 1120px;
     width: 100%;
     justify-content: center;
     align-items: center;
@@ -115,7 +117,7 @@ export const ButtonUpload = styled.div`
     color: ${({ theme }) => theme.COLORS.LIGHT_LIGHT_300};
   }
 
-  @media (min-width: ${DEVICE_BREAKPOINTS.MD}) {
+  @media (min-width: ${DEVICE_BREAKPOINTS.SM}) {
     & button {
       width: 229px;
       height: 48px;
@@ -155,36 +157,24 @@ export const IngredientsCard = styled.div`
   & .price {
     height: 48px;
     border: none;
-    
-    @media (min-width: ${DEVICE_BREAKPOINTS.MD}) {
-      display: flex;
-      width: 251px;
-  
-    }
   }
 
-  & .ingredient {
+  & .ingredients-inputs {
     background-color: ${({ theme }) => theme.COLORS.DARK_DARK_800};
     display: flex;
     align-items: center;
     gap: 16px;
     padding: 8px 8px;
     border-radius: 5px;
-
-    @media (max-width: ${DEVICE_BREAKPOINTS.MD}) {
-      display: flex;
-      width: 837px;
-  
-    }
   }
 
-  & .tag1 {
+  & .input-added-ingredient {
     max-width: 118px;
     width: 100%;
     outline: none;
   }
 
-  & .tag2 {
+  & .input-new {
     max-width: 118px;
     width: 100%;
     color: ${({ theme }) => theme.COLORS.LIGHT_LIGHT_500};
@@ -196,9 +186,62 @@ export const IngredientsCard = styled.div`
   }
 
   @media (min-width: ${DEVICE_BREAKPOINTS.MD}) {
-    display: flex;
-    max-width: 1328px;
+    max-width: 1120px;
     width: 100%;
+    display: flex;
+
+    & .content-ingredients-card {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+    & .description-ingredients {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      justify-content: center;
+    }
+    & .ingredients-inputs {
+      display: flex;
+      height: 48px;
+      min-width: 837px;
+      width: 100%;
+    }
+    & .price {
+      max-width: 251px;
+      width: 100%;
+    }
+  }
+
+  @media (min-width: ${DEVICE_BREAKPOINTS.SM}) {
+    max-width: 1120px;
+    width: 100%;
+    display: flex;
+
+    & .content-ingredients-card {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+    }
+
+    & .description-ingredients {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      justify-content: center;
+    }
+    & .ingredients-inputs {
+      display: flex;
+      gap: 32px;
+      width: 100%;
+      width: 535px;
+      height: 48px;
+    }
+
+    & .price {
+      max-width: 251px;
+      width: 90%;
+    }
   }
 `
 export const Description = styled.div`
@@ -210,13 +253,24 @@ export const Description = styled.div`
     flex-direction: column;
     max-width: 364px;
     width: 100%;
+    @media (min-width: ${DEVICE_BREAKPOINTS.SM}) {
+      max-width: 1120px;
+      width: 100%;
+    }
   }
 `
 
 export const SubmitButton = styled.div`
   display: flex;
   align-items: center;
-  justify-content: center;
+  flex-flow: row-reverse;
+  gap: 5px;
+
+  & .delete {
+    max-width: 160px;
+    width: 100%;
+    background-color: ${({ theme }) => theme.COLORS.DARK_DARK_800};
+  }
 
   & Button {
     max-width: 364px;
@@ -227,5 +281,19 @@ export const SubmitButton = styled.div`
     cursor: pointer;
     text-shadow: none;
     border-radius: 5px;
+
+    @media (min-width: ${DEVICE_BREAKPOINTS.SM}) {
+      max-width: 172px;
+      width: 100%;
+
+      & .delete {
+        max-width: 135px;
+        width: 100%;
+      }
+    }
+  }
+  @media (min-width: ${DEVICE_BREAKPOINTS.SM}) {
+    justify-content: end;
+    gap: 32px;
   }
 `

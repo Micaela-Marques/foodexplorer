@@ -5,7 +5,6 @@ import { SignUp } from "../Pages/SignUp";
 import { Home } from "../Pages/Home";
 import { CartFood } from "../Pages/CartFood";
 import { CreateFood } from "../Pages/CreateFood";
-import { EditFood } from "../Pages/EditFood";
 import { Navbar } from "../components/Navbar";
 
 export function AppRoutes() {
@@ -25,7 +24,7 @@ export function AppRoutes() {
         <Route path="/cart" element={<CartFood userDefault={userDefault} />} />
         <Route path="/admin/new" element={<CartFood userDefault={userDefault} />} />
         <Route path="/admin/create" element={<CreateFood />} />
-        <Route path="/admin/edit" element={<EditFood />} />
+        <Route path="/admin/edit/:id" element={<CreateFood />} />
       </Routes>,
       
     </>
