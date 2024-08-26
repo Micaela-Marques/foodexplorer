@@ -4,7 +4,7 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
 
-  background-color: ${({ theme, isNew }) => (isNew ? 'transparent' : theme.COLORS.LIGHT_LIGHT_600)};
+  background-color: ${({ theme, isNew }) => (isNew ? 'transparent' : theme.COLORS.LIGHT_LIGHT_500)};
   color: ${({ theme }) => theme.COLORS.GRAY_300};
 
   border: ${({ theme, isNew }) => (isNew ? `1px dashed ${theme.COLORS.LIGHT_LIGHT_500}` : 'none')};
@@ -20,10 +20,12 @@ export const Container = styled.div`
 
   .button-delete {
     color: ${({ theme }) => theme.COLORS.LIGHT_LIGHT_100};
+    cursor: pointer;
   }
 
   .button-add {
     color: ${({ theme }) => theme.COLORS.LIGHT_LIGHT_500};
+    cursor: pointer;
   }
 
   > input {
@@ -33,7 +35,7 @@ export const Container = styled.div`
 
     padding: 12px;
 
-    color: ${({ theme }) => theme.COLORS.WHITE};
+    color: ${({ theme }) => theme.COLORS.LIGHT_LIGHT_100};
     background: transparent;
 
     border: none;

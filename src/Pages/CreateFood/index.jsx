@@ -1,12 +1,12 @@
 import {
   Container,
-  Card,
   CardDetails,
-  ButtonContainer,
+  ButtonUpload,
   IngredientsCard,
-  ButtonSubmit,
-  Section,
-  Main
+  Description,
+  SubmitButton,
+  GoBack,
+  CreatedProduct
 } from './styles'
 import { Footer } from '../../components/Footer'
 import { PiCaretLeftBold } from 'react-icons/pi'
@@ -20,86 +20,80 @@ import { FoodItem } from '../../components/Fooditem'
 export function CreateFood({ ...rest }) {
   return (
     <Container {...rest}>
-      <Main>
-        <Section>
+      <CreatedProduct>
+        <GoBack>
           <Link
-            to="/"
             className="link"
+            to="/"
           >
             <PiCaretLeftBold />
             <span>Voltar</span>
           </Link>
 
-          <h1>Adicionar prato</h1>
-        </Section>
+          <h1>Novo prato</h1>
+        </GoBack>
 
-        <Card>
-          <CardDetails>
-            <ButtonContainer>
-              <label className="upload-button">Imagem do prato</label>
-              <Button
-                id="upload-button"
-                Icon={PiUploadSimpleBold}
-                title="Selecione a imagem"
-              />
-            </ButtonContainer>
-
-            <Input
-              className="title"
-              type="text"
-              label="Nome"
-              placeholder="Ex.: Salada Ceasar"
+        <CardDetails>
+          <ButtonUpload>
+            <label className="label-upload-button">Imagem do prato</label>
+            <Button
+              id="upload-button"
+              Icon={PiUploadSimpleBold}
+              title="Selecione a imagem"
             />
+          </ButtonUpload>
 
-            <Input
-              className="category"
-              type="text"
-              label="Categoria"
-              placeholder="Ex.: Salada Ceasar"
+          <Input
+            type="text"
+            label="Nome"
+            placeholder="Ex.: Salada Ceasar"
+          />
+
+          <Input
+            className="category"
+            type="select"
+            label="Categoria"
+            placeholder="Ex.: Salada Ceasar"
+          />
+        </CardDetails>
+
+        <IngredientsCard>
+          <p>Ingredientes</p>
+          <div className="ingredient">
+            <FoodItem
+              className="tag1"
+              value="Pão Naan"
             />
-          </CardDetails>
-
-          <IngredientsCard>
-            <div className="ingredient">
-              <label
-                htmlFor="test"
-                className=""
-              >
-                Ingredientes
-              </label>
-              <div className="test">
-                <FoodItem
-                  className="tag1"
-                  value="Pão Naan"
-                />
-                <FoodItem
-                  className="tag2"
-                  isNew
-                />
-              </div>
-            </div>
-            <Input
-              className="price"
-              type="text"
-              label="Preço"
-              placeholder="R$ 00.00"
+            <FoodItem
+              placeholder="Adicionar"
+              className="tag2"
+              isNew
             />
-          </IngredientsCard>
+          </div>
+          <Input
+            className="price"
+            type="text"
+            label="Preço"
+            placeholder="R$ 00.00"
+          />
+        </IngredientsCard>
 
+        <Description>
           <TextArea
+            className="textarea"
             label="Descrição"
             placeholder="Fale brevemente sobre o prato, seus ingredientes e composição"
           />
-          <ButtonSubmit>
-            <Button
-              className="Submit"
-              title="Salvar alterações"
-            />
-          </ButtonSubmit>
-        </Card>
-      </Main>
+        </Description>
+        <SubmitButton>
+          <Button
+            className="Submit"
+            title="Salvar alterações"
+          />
+        </SubmitButton>
+      </CreatedProduct>
 
-      <Footer className="footer" />
+      <Footer />
     </Container>
   )
 }

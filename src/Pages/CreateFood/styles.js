@@ -1,183 +1,231 @@
 import styled from 'styled-components'
+import { DEVICE_BREAKPOINTS } from '../../styles/deviceBreakpoints'
 
 export const Container = styled.div`
-  display: grid;
-  grid-template-areas:
-    'header'
-    'content'
-    'footer';
-  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 20px;
+  padding-bottom: 100px;
+`
 
-  padding-bottom: 77px;
+export const CreatedProduct = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  justify-content: center;
+  width: 100%;
+  gap: 24px;
 
-  label {
-    font-size: 16px;
-    font-weight: 400;
-    color: ${({ theme }) => theme.COLORS.LIGHT_LIGHT_400};
-    margin-bottom: 8px;
-  }
-
-  .header {
-    grid-area: header;
-  }
-
-  .footer {
-    grid-area: footer;
+  @media (min-width: ${DEVICE_BREAKPOINTS.MD}) {
+    max-width: 1328px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
   }
 `
-export const Section = styled.div`
-  border-radius: 8px;
-  padding: 32px 0px;
-  width: 1120px;
 
-  > a {
-    text-decoration: none;
-    font-weight: bold;
-    color: ${({ theme }) => theme.COLORS.LIGHT_LIGHT_100};
+export const GoBack = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  .link {
+    display: flex;
+    align-items: center;
   }
 
-  > h1 {
+  & svg {
+    text-decoration: none;
+    color: ${({ theme }) => theme.COLORS.LIGHT_LIGHT_100};
+    width: 22px;
+    height: 21px;
+  }
+  & span {
+    color: ${({ theme }) => theme.COLORS.LIGHT_LIGHT_300};
+  }
+
+  & h1 {
     font-size: 32px;
-    font-weight: 500;
+    font-weight: 400;
     color: ${({ theme }) => theme.COLORS.LIGHT_LIGHT_300};
   }
 `
 
-export const Main = styled.div`
-  grid-area: content;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-`
-
-export const Card = styled.div`
-  grid-area: content;
-  width: 1120px;
-  display: flex;
-  gap: 32px;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: 0 auto;
-`
-
 export const CardDetails = styled.div`
-  display: flex;
-  gap: 32px;
-  align-items: center;
-  justify-content: center;
-  color: ${({ theme }) => theme.COLORS.LIGHT_LIGHT_400};
-  font-family: 'Roboto', sans-serif;
-  font-weight: 400;
-
-  .title {
-    width: 463px;
+  & input {
+    max-width: 364px;
+    width: 100%;
     height: 48px;
     border: none;
   }
 
-  .category {
-    width: 364px;
-    height: 48px;
-    border: none;
+  > .label-input {
+    font-size: 16px;
+    font-weight: 500;
+    color: ${({ theme }) => theme.COLORS.LIGHT_LIGHT_300};
+  }
+
+  @media (min-width: ${DEVICE_BREAKPOINTS.MD}) {
+    max-width: 1328px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    gap: 32px;
+
+    & input {
+      max-width: 463px;
+      width: 100%;
+      border: none;
+    }
+
+    & .category {
+      max-width: 364px;
+      width: 100%;
+      border: none;
+    }
   }
 `
 
-export const ButtonContainer = styled.div`
+export const ButtonUpload = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  margin-bottom: -8px;
+  gap: 16px;
 
-  > button {
+  & button {
+    max-width: 364px;
+    width: 100%;
+    height: 48px;
+    background-color: ${({ theme }) => theme.COLORS.DARK_DARK_600};
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 8px;
-    width: 229px;
-    height: 48px;
-    text-shadow: none;
-    font-weight: 500;
-    background: ${({ theme }) => theme.COLORS.DARK_DARK_800};
-    color: ${({ theme }) => theme.COLORS.LIGHT_LIGHT_100};
 
-    > svg {
-      position: relative;
-      top: 0px;
+    svg {
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  & .label-upload-button {
+    font-size: 16px;
+    font-weight: 400;
+    color: ${({ theme }) => theme.COLORS.LIGHT_LIGHT_300};
+  }
+
+  @media (min-width: ${DEVICE_BREAKPOINTS.MD}) {
+    & button {
+      width: 229px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+
+      svg {
+        width: 24px;
+        height: 24px;
+      }
+    }
+
+    & .label-upload-button {
+      font-size: 16px;
+      font-weight: 400;
+      color: ${({ theme }) => theme.COLORS.LIGHT_LIGHT_300};
     }
   }
 `
 
 export const IngredientsCard = styled.div`
+  max-width: 364px;
+  width: 100%;
+
   display: flex;
-  gap: 32px;
-  align-items: center;
-  justify-content: center;
-  color: ${({ theme }) => theme.COLORS.LIGHT_LIGHT_400};
-  font-family: 'Roboto', sans-serif;
-  font-weight: 400;
+  flex-direction: column;
+  gap: 16px;
 
-  .test {
-    display: flex;
-    gap: 16px;
-    align-items: center;
-    min-width: 837px;
-    height: 48px;
-    border: none;
-    background-color: ${({ theme }) => theme.COLORS.DARK_DARK_900};
-    border-radius: 5px;
-    padding: 0 8px;
-    padding-top: 8px;
-  }
-  .tag1 {
-    outline: none;
-    color: ${({ theme }) => theme.COLORS.LIGHT_LIGHT_100};
-    text-align: center;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 400;
-    font-size: 1rem;
-  }
-  .tag2 {
-    outline: none;
-    color: ${({ theme }) => theme.COLORS.LIGHT_LIGHT_500};
-    text-align: center;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 400;
-    font-size: 1rem;
-  }
-
-  label {
+  p {
     font-size: 16px;
     font-weight: 400;
-    color: ${({ theme }) => theme.COLORS.LIGHT_LIGHT_400};
-    margin-bottom: 8px;
+    color: ${({ theme }) => theme.COLORS.LIGHT_LIGHT_300};
   }
 
-  .ingredient {
-    display: flex;
-    flex-direction: column;
-    margin-top: 7px;
-  }
-
-  .price {
-    width: 251px;
+  & .price {
     height: 48px;
     border: none;
+    
+    @media (min-width: ${DEVICE_BREAKPOINTS.MD}) {
+      display: flex;
+      width: 251px;
+  
+    }
+  }
+
+  & .ingredient {
+    background-color: ${({ theme }) => theme.COLORS.DARK_DARK_800};
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 8px 8px;
+    border-radius: 5px;
+
+    @media (max-width: ${DEVICE_BREAKPOINTS.MD}) {
+      display: flex;
+      width: 837px;
+  
+    }
+  }
+
+  & .tag1 {
+    max-width: 118px;
+    width: 100%;
+    outline: none;
+  }
+
+  & .tag2 {
+    max-width: 118px;
+    width: 100%;
+    color: ${({ theme }) => theme.COLORS.LIGHT_LIGHT_500};
+
+    & ::placeholder {
+      font-size: 1rem;
+      font-weight: 400;
+    }
+  }
+
+  @media (min-width: ${DEVICE_BREAKPOINTS.MD}) {
+    display: flex;
+    max-width: 1328px;
+    width: 100%;
+  }
+`
+export const Description = styled.div`
+  font-size: 16px;
+  font-weight: 400;
+  color: ${({ theme }) => theme.COLORS.LIGHT_LIGHT_400};
+  & .textarea {
+    display: flex;
+    flex-direction: column;
+    max-width: 364px;
+    width: 100%;
   }
 `
 
-export const ButtonSubmit = styled.div`
+export const SubmitButton = styled.div`
   display: flex;
-  position: relative;
-  left: 42%;
+  align-items: center;
+  justify-content: center;
 
-  .Submit {
-    width: 172px;
-    min-height: 48px;
+  & Button {
+    max-width: 364px;
+    width: 100%;
+    height: 48px;
+    background-color: ${({ theme }) => theme.COLORS.TINTS_TOMATO_400};
     color: ${({ theme }) => theme.COLORS.LIGHT_LIGHT_100};
-    background: ${({ theme }) => theme.COLORS.TINTS_TOMATO_400};
-    font-weight: 500;
-    border: none;
-    font-size: 14px;
+    cursor: pointer;
     text-shadow: none;
+    border-radius: 5px;
   }
 `

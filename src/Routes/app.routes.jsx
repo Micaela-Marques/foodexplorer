@@ -26,7 +26,8 @@ export function AppRoutes() {
         <Route path="/admin/new" element={<CartFood userDefault={userDefault} />} />
         <Route path="/admin/create" element={<CreateFood />} />
         <Route path="/admin/edit" element={<EditFood />} />
-      </Routes>
+      </Routes>,
+      
     </>
   );
 }
