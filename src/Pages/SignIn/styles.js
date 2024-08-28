@@ -13,10 +13,18 @@ export const Main = styled.div`
   gap: 19.1rem;
   margin: 0 auto;
 
+  & Button {
+    text-shadow: none;
+  }
+
   @media (max-width: ${DEVICE_BREAKPOINTS.MD}) {
     display: flex;
     flex-direction: column;
     gap: 4.5rem;
+    
+    & Button {
+      text-shadow: none;
+    }
   }
 `
 

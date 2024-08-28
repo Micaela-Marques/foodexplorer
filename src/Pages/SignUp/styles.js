@@ -31,11 +31,16 @@ export const Form = styled.form`
   text-align: center;
   gap: 2rem;
   background-color: ${({ theme }) => theme.COLORS.DARK_DARK_700};
-  input {
+
+  & Button {
+    text-shadow: none;
+  }
+
+  & input {
     border: none;
   }
 
-  label {
+  & label {
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
     color: ${({ theme }) => theme.COLORS.LIGHT_LIGHT_400};
@@ -63,6 +68,10 @@ export const Form = styled.form`
   @media (max-width: ${DEVICE_BREAKPOINTS.MD}) {
     background-color: ${({ theme }) => theme.COLORS.DARK_DARK_400};
 
+    
+  & Button {
+    text-shadow: none;
+  }
     > h1 {
       display: none;
     }

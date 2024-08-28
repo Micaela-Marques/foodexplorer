@@ -10,9 +10,9 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   bottom: 0;
-  left: 0;
   padding: 27px 29px;
   position: fixed;
+  margin-top: 77px;
 
   p {
     font-family: 'DM Sans', sans-serif;

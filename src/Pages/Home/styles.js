@@ -6,5 +6,5 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding-bottom: 190px;
+  padding-bottom: 77px;
 `
