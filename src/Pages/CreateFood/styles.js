@@ -32,10 +32,6 @@ export const GoBack = styled.div`
   display: flex;
   flex-direction: column;
 
-  .link {
-    display: flex;
-    align-items: center;
-  }
 
   & svg {
     text-decoration: none;
@@ -43,9 +39,14 @@ export const GoBack = styled.div`
     width: 22px;
     height: 21px;
   }
-  & span {
-    color: ${({ theme }) => theme.COLORS.LIGHT_LIGHT_300};
+  & .to-go-back {
+    display: flex;
+    background: none;
+    font-size: 24px;
+    padding: 0;
+
   }
+ 
 
   & h1 {
     font-size: 32px;
@@ -166,6 +167,9 @@ export const IngredientsCard = styled.div`
     gap: 16px;
     padding: 8px 8px;
     border-radius: 5px;
+    flex-wrap: wrap;
+    flex: 1;
+   
   }
 
   & .input-added-ingredient {
@@ -236,6 +240,8 @@ export const IngredientsCard = styled.div`
       width: 100%;
       width: 535px;
       height: 48px;
+      flex-wrap: wrap;
+      flex: 1;
     }
 
     & .price {

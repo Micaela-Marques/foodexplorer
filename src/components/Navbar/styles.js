@@ -148,6 +148,12 @@ export const Logout = styled.div`
   @media (max-width: ${DEVICE_BREAKPOINTS.XS}) {
     display: none;
   }
+
+  & .go-to-back{
+    background: transparent;
+    border: none;
+    color: ${({ theme }) => theme.COLORS.LIGHT_LIGHT_100};
+  }
 `
 
 export const AdminLogo = styled.div`

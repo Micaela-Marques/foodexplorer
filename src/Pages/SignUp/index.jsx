@@ -34,7 +34,7 @@ export function SignUp() {
 
             <Button title="Criar conta" />
 
-            <Link to="/">Já tenho uma conta</Link>
+            <Link to="/login">Já tenho uma conta</Link>
           </Form>
         </div>
       </Main>

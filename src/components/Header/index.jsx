@@ -1,10 +1,13 @@
-import styled from 'styled-components'
 import { Container, ImgHeader, Section } from './styles'
 
 export function Header() {
   return (
     <Container>
+      
+      <div className='image'> 
       <ImgHeader />
+
+      </div>
 
       <Section>
         <h1>Sabores inigualáveis</h1>

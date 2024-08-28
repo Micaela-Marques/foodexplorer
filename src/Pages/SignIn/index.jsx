@@ -1,10 +1,13 @@
-import { Container, Form, Background, Main } from './styles'
-import { Link } from 'react-router-dom'
+import { Container, Form, Background, Main } from './styles';
+import { Link } from 'react-router-dom';
 
-import { Button } from '../../components/Button'
-import { Input } from '../../components/Input'
+import { Button } from '../../components/Button';
+import { Input } from '../../components/Input';
+
 
 export function SignIn() {
+
+
   return (
     <Container>
       <Main>
@@ -16,17 +19,19 @@ export function SignIn() {
           <Form>
             <h1>Faça Login</h1>
             <Input
-              classname="input"
+              className="input"  
               type="text"
               label="Faça Login"
               placeholder="Exemplo: exemplo@exemplo.com.br"
+ 
             />
 
             <Input
-              classname="input"
+              className="input" 
               type="password"
               label="Password"
-              placeholder="No minimo 6 caracteres"
+              placeholder="No mínimo 6 caracteres"
+  
             />
 
             <Button title="Entrar" />
@@ -36,5 +41,5 @@ export function SignIn() {
         </div>
       </Main>
     </Container>
-  )
+  );
 }

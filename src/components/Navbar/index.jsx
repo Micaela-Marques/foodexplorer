@@ -14,9 +14,15 @@ import {
 import { Button } from '../Button'
 import { Input } from '../Input'
 import { IoMenu } from 'react-icons/io5'
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 export function Navbar({ userDefault }) {
+
+  const navigate = useNavigate();
+
+  function handleBack() {
+    navigate('/login');
+  }
   return (
     <Container>
       <Main>
@@ -48,12 +54,15 @@ export function Navbar({ userDefault }) {
         </BtnOrders>
 
         <Logout>
-          <Link to="/signIn">
+          <button className='go-to-back'>
             <MdOutlineLogout
               size={30}
               aria-label="Logout"
+              onClick={handleBack}
             />
-          </Link>
+            
+          </button>
+        
         </Logout>
       </Main>
     </Container>

@@ -10,7 +10,7 @@ export function Home({ userDefault }) {
   return (
     <Container>
       <Header />
-      <Catalog
+      {/* <Catalog
         userDefault={userDefault}
         foods={snackData}
         title="Refeição"
@@ -24,7 +24,7 @@ export function Home({ userDefault }) {
         userDefault={userDefault}
         foods={drinksData}
         title="Bebidas"
-      />
+      /> */}
       <Footer />
     </Container>
   )
