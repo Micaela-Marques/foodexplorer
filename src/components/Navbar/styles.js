@@ -62,7 +62,7 @@ export const ImageLogo = styled.div`
 export const InputWrapper = styled.div`
   & .icon_search {
     position: absolute;
-    top: 14px;
+    top: 22px;
     left: 70px;
     color: ${({ theme }) => theme.COLORS.LIGHT_LIGHT_400};
 
