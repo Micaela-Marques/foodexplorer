@@ -40,6 +40,12 @@ export const Main = styled.div`
 export const Menu = styled.div`
   display: none;
 
+  & svg {
+    width: 24px;
+    height: 25px;
+    color: ${({ theme }) => theme.COLORS.LIGHT_LIGHT_100};
+  }
+
   @media (max-width: ${DEVICE_BREAKPOINTS.SM}) {
     display: block;
     width: 24px;
@@ -172,31 +178,3 @@ export const AdminLogo = styled.div`
   }
 `
 
-// export const ImageLogoDevice = styled.div`
-//     display: none;
-//     max-width: 197px;
-//     height: 39px;
-//     width: 100%;
-//     background-size: cover;
-
-//     @media (max-width: ${DEVICE_BREAKPOINTS.SM}) {
-//         display: block;
-//         background: url(${DeviceLogoAdmin}) no-repeat;
-//         min-width: 192px;
-//         background-size: contain;
-//         height: 16px;
-
-//     }
-//     @media (max-width: ${DEVICE_BREAKPOINTS.MD}) {
-//         display: block;
-//         max-width: 332px;
-//         background: url(${DeviceLogoAdmin}) no-repeat;
-//         background-size: contain;
-//         height: 26px;
-
-//     }
-// `;
-
-// export const Logo = styled.div`
-
-// `;
