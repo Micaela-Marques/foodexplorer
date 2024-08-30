@@ -11,8 +11,7 @@ export const Container = styled.button`
   margin: ${({ margin }) => margin || '0'};
   border-radius: 0.6rem;
   font-weight: 500;
-  text-shadow: 0px -1px 0 #000, -1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000, 0px 1px 0 #000,
-    1px -1px #000;
+
 
   &:disabled {
     opacity: 0.5;

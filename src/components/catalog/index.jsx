@@ -1,5 +1,5 @@
-import { Container, Section } from './styles'
-import { FoodCard } from '../FoodCard'
+import { Container } from './styles';
+import { Carousel } from '../Carrossel'; 
 
 export function Catalog({ Icon, foods, title, userDefault, ...rest }) {
   return (
@@ -7,19 +7,10 @@ export function Catalog({ Icon, foods, title, userDefault, ...rest }) {
       {Icon && <Icon />}
 
       <h1>{title}</h1>
-      <Section>
-        {foods.map((food) => (
-          <FoodCard
-            userDefault={userDefault}
-            key={food.id}
-            title={food.title}
-            description={food.description}
-            price={food.price}
-            icon={food.icon}
-            image={food.image}
-          />
-        ))}
-      </Section>
+    <div>
+      <Carousel foods={foods} userDefault={userDefault} />
+
+    </div>
     </Container>
-  )
+  );
 }
