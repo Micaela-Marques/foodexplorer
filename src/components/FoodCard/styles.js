@@ -1,25 +1,35 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
-  width: 304px;
-  height: 462px;
-  border-radius: 5px;
+  width: 100%;
+  padding-bottom: 100px;
+`
+export const Content = styled.div`
   display: flex;
-  gap: 27px;
   flex-direction: column;
   justify-content: center;
-  padding: 5px;
-  display: flex;
   align-items: center;
   text-align: center;
-
+  width: 304px;
+  height: 462px;
+  gap: 27px;
+  position: relative;
   background: ${({ theme }) => theme.COLORS.DARK_DARK_200};
+  
 
   .heart-icon {
     & svg {
+      position: absolute;
       width: 24px;
-      height: 22px;
-      margin-right: -226px;
+      height: 24px;
+      top: 8px;
+      right: 8px;
+
+      @media (max-width: 480px) {
+        top: 20px;
+        right: -242px;
+        z-index: 1;
+      }
     }
   }
 `
@@ -29,7 +39,8 @@ export const FoodImage = styled.image``
 export const Ingredients = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 8px;
+
   span {
     color: ${({ theme }) => theme.COLORS.TINTS_CAKE_200};
     font-family: 'Roboto', sans-serif;
@@ -48,7 +59,9 @@ export const Ingredients = styled.div`
   }
 `
 
-export const AddToCart = styled.div``
+export const AddToCart = styled.div`
+  padding-bottom: 77px;
+`
 
 export const FoodCardFooter = styled.div`
   display: flex;
