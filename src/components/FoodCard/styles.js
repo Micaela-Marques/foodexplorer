@@ -1,9 +1,5 @@
 import styled from 'styled-components'
 
-export const Container = styled.div`
-  width: 100%;
-  padding-bottom: 100px;
-`
 export const Content = styled.div`
   display: flex;
   flex-direction: column;
@@ -11,11 +7,11 @@ export const Content = styled.div`
   align-items: center;
   text-align: center;
   width: 304px;
+  margin: 0 1rem;
   height: 462px;
   gap: 27px;
   position: relative;
   background: ${({ theme }) => theme.COLORS.DARK_DARK_200};
-  
 
   .heart-icon {
     & svg {
@@ -33,7 +29,6 @@ export const Content = styled.div`
     }
   }
 `
-
 
 export const Ingredients = styled.div`
   display: flex;
