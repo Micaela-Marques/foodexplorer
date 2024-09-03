@@ -21,7 +21,7 @@ import { SideMenu } from '../../components/SideMenu';
 
 export function Navbar({ userDefault }) {
   const navigate = useNavigate();
-  const [menuIsOpen, setMenuIsOpen] = useState(false); // Adicionado estado para controlar o menu
+  const [menuIsOpen, setMenuIsOpen] = useState(false); 
 
   function handleBack() {
     navigate('/login');

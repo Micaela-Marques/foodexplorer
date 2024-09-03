@@ -4,16 +4,13 @@ import { DEVICE_BREAKPOINTS } from '../../styles/deviceBreakpoints'
 export const Container = styled.aside`
   background-color: ${({ theme }) => theme.COLORS.DARK_DARK_400};
 
-  & .SideMenu {
-  }
-
   @media (min-width: ${DEVICE_BREAKPOINTS.MD}) {
     display: none;
   }
 
-  @media (max-width: ${DEVICE_BREAKPOINTS.SM}) {
+  @media (max-width: ${DEVICE_BREAKPOINTS.MD}) {
     position: absolute;
-    z-index: 1;
+    z-index: 4;
 
     transform: translateX(-100%);
     transition: transform 0.4s ease-in-out;
@@ -33,6 +30,7 @@ export const Menu = styled.div`
     width: 428px;
     height: 965px;
     gap: 36px;
+    
 `
 
 export const Header = styled.header`

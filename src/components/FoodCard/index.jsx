@@ -1,4 +1,4 @@
-import { Container, FoodCardFooter } from './styles'
+import { Container, FoodImage, Ingredients, AddToCart, FoodCardFooter } from './styles'
 import { Button } from '../Button'
 import { FiHeart, FiMinus } from 'react-icons/fi'
 import { IoAdd } from 'react-icons/io5'
@@ -14,33 +14,36 @@ export function FoodCard({ title, description, price, icon: Icon, image, userDef
 
   return (
     <Container {...rest}>
-      {userDefault ? <FiHeart className="heart-icon" /> : <GoPencil className="heart-icon" />}
+      <div className="heart-icon">
+        {userDefault ? <FiHeart className="heart-icon" /> : <GoPencil className="heart-icon" />}
+      </div>
+      <FoodImage>
+        {image && (
+          <img
+            src={image}
+            alt={title}
+            style={imgCatalog}
+          />
+        )}
+      </FoodImage>
 
-      {image && (
-        <img
-          src={image}
-          alt={title}
-          style={imgCatalog}
-        />
-      )}
+      <Ingredients>
+        {Icon && <Icon size={20} />}
+        <h1>{title}</h1>
+        <p>{description}</p>
+        <span>{price}</span>
+      </Ingredients>
 
-      {Icon && <Icon size={20} />}
-
-      <h1>{title}</h1>
-      <p>{description}</p>
-      <span>{price}</span>
-
-      {userDefault && (
-        <FoodCardFooter>
-          <FiMinus size={20} />
-
-          <span>01</span>
-
-          <IoAdd size={20} />
-
-          <Button title="Incluir" />
-        </FoodCardFooter>
-      )}
+      <AddToCart>
+        {userDefault && (
+          <FoodCardFooter>
+            <FiMinus size={20} />
+            <span className="number">01</span>
+            <IoAdd size={20} />
+            <Button title="Incluir" />
+          </FoodCardFooter>
+        )}
+      </AddToCart>
     </Container>
   )
 }

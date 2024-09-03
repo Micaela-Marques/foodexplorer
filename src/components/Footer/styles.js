@@ -13,6 +13,7 @@ export const Container = styled.div`
   padding: 27px 29px;
   position: fixed;
   margin-top: 77px;
+  z-index: 2;
 
   p {
     font-family: 'DM Sans', sans-serif;

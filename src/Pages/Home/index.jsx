@@ -1,11 +1,10 @@
 import { Container } from './styles'
 import { Footer } from '../../components/Footer'
 import { Header } from '../../components/Header'
-import { Catalog } from '../../components/catalog'
+import { Catalog } from '../../components/Catalog'
 import { snackData } from './Refeições'
 import { dessertData } from './Sobremesa'
 import { drinksData } from './Bebidas'
-
 
 export function Home({ userDefault }) {
   return (

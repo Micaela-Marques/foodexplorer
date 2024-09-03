@@ -3,78 +3,69 @@ import styled from 'styled-components'
 export const Container = styled.div`
   width: 304px;
   height: 462px;
-  border-radius: 10px;
-  margin-top: 23px;
+  border-radius: 5px;
   display: flex;
+  gap: 27px;
   flex-direction: column;
   justify-content: center;
+  padding: 5px;
+  display: flex;
   align-items: center;
-  gap: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  position: relative;
-  padding: 24px 0px 24px;
   text-align: center;
 
   background: ${({ theme }) => theme.COLORS.DARK_DARK_200};
-  .heart-icon {
-    position: absolute;
-    top: 16px;
-    right: 16px;
-    width: 24px;
-    height: 24px;
-    color: ${({ theme }) => theme.COLORS.LIGHT_LIGHT_100};
-  }
 
-  > span {
+  .heart-icon {
+    & svg {
+      width: 24px;
+      height: 22px;
+      margin-right: -226px;
+    }
+  }
+`
+
+export const FoodImage = styled.image``
+
+export const Ingredients = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  span {
     color: ${({ theme }) => theme.COLORS.TINTS_CAKE_200};
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
     font-size: 32px;
   }
 
-  > h1 {
+  h1 {
     font-size: 24px;
     font-weight: bold;
-
-    color: ${({ theme }) => theme.COLORS.LIGHT_LIGHT_100};
   }
-
   p {
-    font-size: 0.87rem;
-    font-weight: 400;
+    font-size: 14px;
+    color: ${({ theme }) => theme.COLORS.LIGHT_LIGHT_400};
     font-family: 'Roboto', sans-serif;
   }
 `
 
-export const Image = styled.div`
-  background: url(/src/assets/food1.png) no-repeat center center;
-`
+export const AddToCart = styled.div``
 
 export const FoodCardFooter = styled.div`
   display: flex;
   align-items: center;
   gap: 8px;
-  position: relative;
+  text-align: center;
 
-  > Button {
+  Button {
     width: 92px;
     height: 48px;
+    font-weight: 400;
+    font-size: 14px;
   }
-
-  > span {
+  & .number {
     color: white;
     font-family: 'Roboto', sans-serif;
     font-weight: bold;
     font-size: 20px;
-  }
-
-  > svg {
-    position: relative;
-    top: 21%;
-    left: 4%;
-    transform: translate(-50%, -50%);
-    fill: white;
-    transition: fill 0.2s;
-    color: ${({ theme }) => theme.COLORS.LIGHT_LIGHT_100};
   }
 `
