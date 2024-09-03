@@ -1,4 +1,4 @@
-import { Container, FoodImage, Ingredients, AddToCart, FoodCardFooter, Content } from './styles'
+import { Container, Ingredients, AddToCart, FoodCardFooter, Content } from './styles'
 import { Button } from '../Button'
 import { FiHeart, FiMinus } from 'react-icons/fi'
 import { IoAdd } from 'react-icons/io5'
@@ -18,7 +18,7 @@ export function FoodCard({ title, description, price, icon: Icon, image, userDef
         <div className="heart-icon">
           {userDefault ? <FiHeart className="heart-icon" /> : <GoPencil className="heart-icon" />}
         </div>
-        <FoodImage>
+        <div>
           {image && (
             <img
               src={image}
@@ -26,7 +26,7 @@ export function FoodCard({ title, description, price, icon: Icon, image, userDef
               style={imgCatalog}
             />
           )}
-        </FoodImage>
+        </div>
 
         <Ingredients>
           {Icon && <Icon size={20} />}

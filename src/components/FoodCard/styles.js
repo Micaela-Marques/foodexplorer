@@ -34,7 +34,6 @@ export const Content = styled.div`
   }
 `
 
-export const FoodImage = styled.image``
 
 export const Ingredients = styled.div`
   display: flex;
