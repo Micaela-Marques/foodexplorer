@@ -6,7 +6,6 @@ import { Home } from '../Pages/Home'
 import { CartFood } from '../Pages/CartFood'
 import { CreateFood } from '../Pages/CreateFood'
 import { Navbar } from '../components/Navbar'
-import { Orders } from '../Pages/Orders'
 
 export function AppRoutes() {
   const location = useLocation()
@@ -49,10 +48,6 @@ export function AppRoutes() {
         <Route
           path="/admin/edit/:id"
           element={<CreateFood />}
-        />
-        <Route
-          path="/orders"
-          element={<Orders />}
         />
       </Routes>
     </>
