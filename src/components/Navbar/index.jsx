@@ -3,7 +3,8 @@ import { MdOutlineLogout } from 'react-icons/md';
 import { GrSearch } from 'react-icons/gr';
 import { PiReceipt } from 'react-icons/pi';
 import { List } from '@phosphor-icons/react';
-import { useNavigate } from 'react-router-dom';
+
+import { useAuth } from '../../hooks/auth'
 
 import {
   Container,
@@ -20,12 +21,10 @@ import { Input } from '../Input';
 import { SideMenu } from '../../components/SideMenu';
 
 export function Navbar({ userDefault }) {
-  const navigate = useNavigate();
+  const {  signOut } = useAuth();
+
   const [menuIsOpen, setMenuIsOpen] = useState(false); 
 
-  function handleBack() {
-    navigate('/login');
-  }
 
   function toggleMenu() {
     setMenuIsOpen(prevState => !prevState); 
@@ -67,7 +66,7 @@ export function Navbar({ userDefault }) {
             <MdOutlineLogout
               size={30}
               aria-label="Logout"
-              onClick={handleBack}
+              onClick={signOut}
             />
           </button>
         </Logout>
