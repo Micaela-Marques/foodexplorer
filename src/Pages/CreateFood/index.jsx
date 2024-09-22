@@ -1,5 +1,5 @@
-import { useState, useRef } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useState, useRef } from 'react'
+import { useParams, useNavigate } from 'react-router-dom'
 import {
   Container,
   CardDetails,
@@ -8,55 +8,55 @@ import {
   Description,
   SubmitButton,
   GoBack,
-  CreatedProduct,
-} from './styles';
+  CreatedProduct
+} from './styles'
 
-import { Footer } from '../../components/Footer';
-import { PiCaretLeftBold, PiUploadSimpleBold } from 'react-icons/pi';
-import { Button } from '../../components/Button';
-import { Input } from '../../components/Input';
-import { TextArea } from '../../components/TextArea';
-import { FoodItem } from '../../components/Fooditem';
-
+import { Footer } from '../../components/Footer'
+import { PiCaretLeftBold, PiUploadSimpleBold } from 'react-icons/pi'
+import { Button } from '../../components/Button'
+import { Input } from '../../components/Input'
+import { TextArea } from '../../components/TextArea'
+import { FoodItem } from '../../components/Fooditem'
+import { SelectInput } from '../../components/Select'
 export function CreateFood({ ...rest }) {
-  const { id } = useParams();
+  const { id } = useParams()
 
-  const [ingredients, setIngredients] = useState([]);
-  const [newIngredient, setNewIngredient] = useState('');
 
-  const [foodImage, setFoodImage] = useState(null); 
+  const [ingredients, setIngredients] = useState([])
+  const [newIngredient, setNewIngredient] = useState('')
+  const [foodImage, setFoodImage] = useState(null)
 
-  const inputFileRef = useRef(null); 
+  const inputFileRef = useRef(null)
 
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   function handleBack() {
-    navigate('/admin');
+    navigate('/admin')
   }
 
   function handleAddIngredient() {
     if (newIngredient.trim()) {
-      setIngredients((prevState) => [...prevState, newIngredient]);
-      setNewIngredient('');
+      setIngredients((prevState) => [...prevState, newIngredient])
+      setNewIngredient('')
     }
   }
 
   function handleDeleteIngredient(ingredientToDelete) {
-       setIngredients((prevState) =>
+    setIngredients((prevState) =>
       prevState.filter((ingredient) => ingredient !== ingredientToDelete)
-    );
+    )
   }
 
   function handleChangeImageFood(e) {
-    const file = e.target.files[0];
-    setFoodImage(file);
+    const file = e.target.files[0]
+    setFoodImage(file)
 
-    const imagePreview = URL.createObjectURL(file);
-    setFoodImage(imagePreview);
+    const imagePreview = URL.createObjectURL(file)
+    setFoodImage(imagePreview)
   }
 
   function handleClickUpload() {
-    inputFileRef.current.click(); 
+    inputFileRef.current.click()
   }
 
   return (
@@ -85,7 +85,7 @@ export function CreateFood({ ...rest }) {
               type="file"
               accept="image/*"
               ref={inputFileRef}
-              style={{ display: 'none' }} 
+              style={{ display: 'none' }}
               onChange={handleChangeImageFood}
             />
             {foodImage && (
@@ -99,14 +99,12 @@ export function CreateFood({ ...rest }) {
             )}
           </ButtonUpload>
 
-          <Input type="text" label="Nome" placeholder="Ex.: Salada Ceasar" />
-
           <Input
-            className="category"
-            type="select"
-            label="Categoria"
-            placeholder="Selecione a categoria"
+            type="text"
+            label="Nome"
+            placeholder="Ex.: Salada Ceasar"
           />
+          <SelectInput className='category' />
         </CardDetails>
 
         <IngredientsCard>
@@ -157,11 +155,16 @@ export function CreateFood({ ...rest }) {
             title={id ? 'Salvar alterações' : 'Salvar alterações'}
           />
 
-          {id && <Button className="delete" title="Excluir prato" />}
+          {id && (
+            <Button
+              className="delete"
+              title="Excluir prato"
+            />
+          )}
         </SubmitButton>
       </CreatedProduct>
 
       <Footer />
     </Container>
-  );
+  )
 }
