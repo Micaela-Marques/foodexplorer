@@ -12,6 +12,7 @@ export const Container = styled.div`
 export const Label = styled.label`
   font-weight: 500;
   color: #C4C4CC;
+  margin-bottom: 3px;
 `;
 
 export const SelectWrapper = styled.div`
@@ -35,8 +36,8 @@ export const Select = styled.select`
   background-color: ${({ theme }) => theme.COLORS.DARK_DARK_900};
   color: ${({ theme }) => theme.COLORS.LIGHT_LIGHT_500};
   border: none;
-  border-radius: 8px;
-  font-size: 20px;
+  border-radius: 5px;
+  font-size: 16px;
   appearance: none;
   outline: none;
   cursor: pointer;
