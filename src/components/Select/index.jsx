@@ -3,14 +3,13 @@ import { Container, Label, SelectWrapper, Select } from './styles'
 import { api } from '../../Services/api'
 import { FaChevronDown } from 'react-icons/fa'
 
-export function SelectInput() {
+export function SelectInput({ onSelect }) {
   const [categories, setCategories] = useState([])
 
   useEffect(() => {
     const fetchCategories = async () => {
       try {
         const { data } = await api.get('/categories')
-        console.log("🚀 ~ fetchCategories ~ response:", data)
         setCategories(data)
       } catch (error) {
         console.error('Erro ao buscar categorias:', error)
@@ -27,6 +26,7 @@ export function SelectInput() {
         <Select
           id="categories"
           name="categories"
+          onChange={(event) => onSelect(event.target.value)}
         >
           {categories.map((category) => (
             <option

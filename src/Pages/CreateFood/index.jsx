@@ -11,6 +11,7 @@ import {
   CreatedProduct
 } from './styles'
 
+
 import { Footer } from '../../components/Footer'
 import { PiCaretLeftBold, PiUploadSimpleBold } from 'react-icons/pi'
 import { Button } from '../../components/Button'
@@ -18,10 +19,15 @@ import { Input } from '../../components/Input'
 import { TextArea } from '../../components/TextArea'
 import { FoodItem } from '../../components/Fooditem'
 import { SelectInput } from '../../components/Select'
+
+import api from '../../Services/api'
 export function CreateFood({ ...rest }) {
   const { id } = useParams()
 
-
+  const [name, setName] = useState('')
+  const [description, setDescription] = useState('')
+  const [price, setPrice] = useState('')
+  const [categories_id, setCategory] = useState('')
   const [ingredients, setIngredients] = useState([])
   const [newIngredient, setNewIngredient] = useState('')
   const [foodImage, setFoodImage] = useState(null)
@@ -47,17 +53,59 @@ export function CreateFood({ ...rest }) {
     )
   }
 
-  function handleChangeImageFood(e) {
+  async function handleChangeImageFood(e) {
     const file = e.target.files[0]
     setFoodImage(file)
 
     const imagePreview = URL.createObjectURL(file)
     setFoodImage(imagePreview)
+
+    await api.post('/product').where({})
+    
   }
 
   function handleClickUpload() {
     inputFileRef.current.click()
   }
+
+  async function handleNewProduct() {
+    try {
+    
+      if (!name || !description || !ingredients || !foodImage || !price || !categories_id) {
+        alert("Por favor, preencha todos os campos obrigatórios.");
+        return;
+      }
+  
+      await api.post('/product', {
+        name,
+        description,
+        ingredients,
+        image: foodImage,
+        price,
+        categories_id
+      });
+
+   
+  
+      alert("Novo prato cadastrado!");
+      navigate('/admin');
+    } catch (error) {
+      if (error.response) {
+        // A resposta foi recebida, mas o status indica um erro
+        console.error("Erro na resposta da API:", error.response.status, error.response.data);
+        alert(`Erro ${error.response.status}: ${error.response.data}`);
+      } else if (error.request) {
+        // A requisição foi feita, mas nenhuma resposta foi recebida
+        console.error("Nenhuma resposta da API. Detalhes:", error.request);
+        alert("Nenhuma resposta do servidor. Verifique sua conexão.");
+      } else {
+        // Erro ao configurar a requisição
+        console.error("Erro ao configurar a requisição:", error.message);
+        alert("Ocorreu um erro. Tente novamente.");
+      }
+    }
+  }
+  
 
   return (
     <Container {...rest}>
@@ -93,7 +141,7 @@ export function CreateFood({ ...rest }) {
                 <img
                   src={foodImage}
                   alt="Pré-visualização da comida"
-                  style={{ width: '300px', height: 'auto', marginTop: '10px' }}
+                  style={{ max_width: '40px',width: '50%', max_height: '20px', marginTop: '5px' }}
                 />
               </div>
             )}
@@ -103,8 +151,13 @@ export function CreateFood({ ...rest }) {
             type="text"
             label="Nome"
             placeholder="Ex.: Salada Ceasar"
+            onChange={(e) => setName(e.target.value)}
           />
-          <SelectInput className='category' />
+        
+          <SelectInput
+            className="category"
+            onSelect={setCategory}
+          />
         </CardDetails>
 
         <IngredientsCard>
@@ -117,6 +170,7 @@ export function CreateFood({ ...rest }) {
                     key={String(index)}
                     value={ingredient}
                     onClick={() => handleDeleteIngredient(ingredient)}
+                    onChange={(e) => setIngredients(e.target.value)}
                   />
                 ))}
 
@@ -126,6 +180,7 @@ export function CreateFood({ ...rest }) {
                   value={newIngredient}
                   onChange={(e) => setNewIngredient(e.target.value)}
                   onClick={handleAddIngredient}
+                  
                 />
               </div>
             </div>
@@ -136,6 +191,7 @@ export function CreateFood({ ...rest }) {
                 type="text"
                 label="Preço"
                 placeholder="R$ 00.00"
+                onChange={(e) => setPrice(e.target.value)}
               />
             </div>
           </div>
@@ -146,6 +202,7 @@ export function CreateFood({ ...rest }) {
             className="textarea"
             label="Descrição"
             placeholder="Fale brevemente sobre o prato, seus ingredientes e composição"
+            onChange={(e) => setDescription(e.target.value)}
           />
         </Description>
 
@@ -153,6 +210,7 @@ export function CreateFood({ ...rest }) {
           <Button
             className="Submit"
             title={id ? 'Salvar alterações' : 'Salvar alterações'}
+            onClick={handleNewProduct}
           />
 
           {id && (
