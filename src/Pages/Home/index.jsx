@@ -6,6 +6,7 @@ import { snackData } from './Refeições'
 import { dessertData } from './Sobremesa'
 import { drinksData } from './Bebidas'
 
+
 export function Home({ userDefault }) {
   const listCatalogs = [
     {

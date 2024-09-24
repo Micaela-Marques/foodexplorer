@@ -16,13 +16,19 @@ import { Button } from '../../components/Button'
 import { Tag } from '../../components/Tag'
 import { PiCaretLeftBold } from 'react-icons/pi'
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 export function CartFood({ userDefault, Icon, ...rest }) {
   const [quantity, setQuantity] = useState(1)
+  const navigate = useNavigate()
 
   const handleClick = (qtd) => {
     const sum = qtd + quantity
     if (sum > 0) setQuantity(sum)
+  }
+
+  const handleEditClick = () => {
+    navigate('/admin/edit/:id')
   }
 
   return (
@@ -66,7 +72,10 @@ export function CartFood({ userDefault, Icon, ...rest }) {
                   />
                 </>
               )}
-              <Button title={userDefault ? 'incluir ∙ R$ 25,00 ' : 'Editar prato'} />
+              <Button
+                title={userDefault ? 'incluir ∙ R$ 25,00 ' : 'Editar prato'}
+                onClick={handleEditClick}
+              />
             </QuantityControl>
           </CardProductDetails>
         </CardProduct>
