@@ -5,8 +5,7 @@ import { IoAdd } from 'react-icons/io5'
 import { GoPencil } from 'react-icons/go'
 import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
-
-export function FoodCard({ title, description, price, icon: Icon, image, userDefault }) {
+export function FoodCard({ id, title, description, price, icon: Icon, image, userDefault }) {
   const navigate = useNavigate()
 
   const imgCatalog = {
@@ -16,16 +15,23 @@ export function FoodCard({ title, description, price, icon: Icon, image, userDef
     marginTop: '20px'
   }
 
-  const handleEditClick = () => {
-    navigate('/admin/edit/:id')
-  }
-
   const [quantity, setQuantity] = useState(1)
 
   const handleClick = (qtd) => {
     const sum = quantity + qtd
-    if (sum > 0) setQuantity(sum)  
+    if (sum > 0) setQuantity(sum)
   }
+
+  const handleEditClick = () => {
+    navigate(`/admin/new/${id}`)
+  }
+
+  const handleShowCart = async () => {
+    navigate(`/cart/${id}`)
+  }
+
+  
+
   return (
     <Content>
       <div className="heart-icon">
@@ -63,12 +69,12 @@ export function FoodCard({ title, description, price, icon: Icon, image, userDef
               size={20}
               onClick={() => handleClick(-1)}
             />
-            <span className="number">{String(quantity).padStart(2, '0')}</span> 
+            <span className="number">{String(quantity).padStart(2, '0')}</span>
             <IoAdd
               size={20}
               onClick={() => handleClick(1)}
             />
-            <Button title="Incluir" />
+            <Button title="Incluir" onClick={handleShowCart} />
           </FoodCardFooter>
         )}
       </AddToCart>
