@@ -1,10 +1,11 @@
-import { useState, useEffect, useCallback } from 'react'
-import { MdOutlineLogout } from 'react-icons/md'
-import { GrSearch } from 'react-icons/gr'
-import { PiReceipt } from 'react-icons/pi'
-import { List } from '@phosphor-icons/react'
-import { useNavigate } from 'react-router-dom'
-import { useAuth } from '../../hooks/auth'
+import { useState, useEffect, useCallback } from 'react';
+import { MdOutlineLogout } from 'react-icons/md';
+import { GrSearch } from 'react-icons/gr';
+import { PiReceipt } from 'react-icons/pi';
+import { List } from '@phosphor-icons/react';
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../../hooks/auth';
+import { useSearch } from '../../providers/SearchContext';
 
 import {
   Container,
@@ -14,46 +15,51 @@ import {
   Logout,
   BtnOrders,
   InputWrapper,
-  Menu
-} from './styles'
-import { Button } from '../Button'
-import { Input } from '../Input'
-import { SideMenu } from '../../components/SideMenu'
+  Menu,
+} from './styles';
+import { Button } from '../Button';
+import { Input } from '../Input';
+import { SideMenu } from '../../components/SideMenu';
 
 export function Navbar({ userDefault }) {
-  const navigate = useNavigate()
-  const { signOut } = useAuth()
+  const { updateSearchTerm } = useSearch();
+  const navigate = useNavigate();
+  const { signOut } = useAuth();
 
-  const [menuIsOpen, setMenuIsOpen] = useState(false)
-  const [search, setSearch] = useState('')
-  const [debouncedSearch, setDebouncedSearch] = useState('')
+  const [menuIsOpen, setMenuIsOpen] = useState(false);
+  const [search, setSearch] = useState('');
 
+  // Função de debounce
   const debounce = useCallback((func, delay) => {
-    let timeoutId
+    let timeoutId;
     return (...args) => {
-      clearTimeout(timeoutId)
-      timeoutId = setTimeout(() => func(...args), delay)
-    }
-  }, [])
+      clearTimeout(timeoutId);
+      timeoutId = setTimeout(() => func(...args), delay);
+    };
+  }, []);
 
+  // Atualiza a busca com debounce
   const debouncedSetSearch = useCallback(
-    debounce((value) => setDebouncedSearch(value), 300),
-    []
-  )
+    debounce((value) => {
+      updateSearchTerm(value);
+    }, 300),
+    [updateSearchTerm]
+  );
 
   useEffect(() => {
-    debouncedSetSearch(search)
-  }, [search, debouncedSetSearch])
+    debouncedSetSearch(search);
+  }, [search, debouncedSetSearch]);
 
   function toggleMenu() {
-    setMenuIsOpen((prevState) => !prevState)
+    setMenuIsOpen((prevState) => !prevState);
   }
 
   function handleNavigate() {
-    navigate('/admin/create')
+    navigate('/admin/create');
   }
+
   function handleNavigateOrders() {
-    navigate('#')
+    navigate('#');
   }
 
   return (
@@ -68,7 +74,6 @@ export function Navbar({ userDefault }) {
         </Menu>
 
         {userDefault ? <ImageLogo /> : <AdminLogo />}
-        {debouncedSearch}
         <InputWrapper>
           <Input
             className="input-search"
@@ -77,7 +82,7 @@ export function Navbar({ userDefault }) {
             Icon={() => <GrSearch />}
             value={search}
             onChange={(e) => {
-              setSearch(e.target.value)
+              setSearch(e.target.value);
             }}
           />
         </InputWrapper>
@@ -103,5 +108,5 @@ export function Navbar({ userDefault }) {
         </Logout>
       </Main>
     </Container>
-  )
+  );
 }
