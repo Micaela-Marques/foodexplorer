@@ -24,11 +24,11 @@ export function AppRoutes() {
         />
 
         <Route
-          path="/cart"
+          path="/cart/:id"
           element={<CartFood userDefault={userDefault} />}
         />
         <Route
-          path="/admin/new"
+          path="/admin/new/:id"
           element={<CartFood userDefault={userDefault} />}
         />
         <Route
@@ -37,7 +37,7 @@ export function AppRoutes() {
         />
         <Route
           path="/admin/edit/:id"
-          element={<CreateFood />}
+          element={<CreateFood  />}
         />
       </Routes>
     </>
