@@ -9,27 +9,56 @@ import {
   GoBack
 } from './styles'
 import { Footer } from '../../components/Footer'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import { FiMinus } from 'react-icons/fi'
 import { IoAdd } from 'react-icons/io5'
 import { Button } from '../../components/Button'
 import { Tag } from '../../components/Tag'
 import { PiCaretLeftBold } from 'react-icons/pi'
-import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useState, useEffect } from 'react'
+import api from '../../Services/api'
 
 export function CartFood({ userDefault, Icon, ...rest }) {
   const [quantity, setQuantity] = useState(1)
   const navigate = useNavigate()
+  const { id } = useParams()
+
+  const [ingredients, setIngredients] = useState([])
+  const [name, setName] = useState('')
+  const [description, setDescription] = useState('')
+  const [price, setPrice] = useState('')
+  const [image, setImage] = useState('')
+  const [error, setError] = useState('') // State for error handling
 
   const handleClick = (qtd) => {
-    const sum = qtd + quantity
+    const sum = quantity + qtd
     if (sum > 0) setQuantity(sum)
   }
 
   const handleEditClick = () => {
-    navigate('/admin/edit/:id')
+    navigate(`/admin/edit/${id}`)
   }
+
+  useEffect(() => {
+    async function fetchFoodDetails() {
+      if (id) {
+        try {
+          const response = await api.get(`/product/${id}`)
+          const { name, description, ingredients, price, image } = response.data
+          setName(name)
+          setDescription(description)
+          setIngredients(ingredients)
+          setPrice(price)
+          setImage(image)
+        } catch (error) {
+          console.error('Error fetching food details:', error)
+          setError('Failed to fetch food details.') // Set error message
+        }
+      }
+    }
+
+    fetchFoodDetails()
+  }, [id])
 
   return (
     <Container {...rest}>
@@ -41,25 +70,26 @@ export function CartFood({ userDefault, Icon, ...rest }) {
         </GoBack>
 
         <CardProduct>
-          <FoodImage />
+          <FoodImage
+            src={image}
+            alt={name || 'Food Image'}
+          />
           <CardProductDetails>
-            <h1>Salada Ravanello</h1>
-            <p>
-              Rabanetes, folhas verdes e molho agridoce salpicados com gergelim. O pão naan dá um
-              toque especial.
-            </p>
-
+            <h1>{name || 'Loading...'}</h1>
+            <p>{description || 'Loading description...'}</p>
+            {error && <p style={{ color: 'red' }}>{error}</p>} {/* Display error message */}
             <CardTag>
-              <Tag title="alface" />
-              <Tag title="cebola" />
-              <Tag title="pão naan" />
-              <Tag title="pepino" />
-              <Tag title="rabanete" />
-              <Tag title="tomate" />
+              {Array.isArray(ingredients) &&
+                ingredients.length > 0 &&
+                ingredients.map((ingredient) => (
+                  <Tag
+                    key={ingredient.id || ingredient} // Use um ID único se disponível
+                    title={ingredient.name || ingredient} // Use 'ingredient.name' se for um objeto
+                  />
+                ))}
             </CardTag>
-
             <QuantityControl>
-              {userDefault && (
+              {userDefault ? (
                 <>
                   <FiMinus
                     size={20}
@@ -70,18 +100,25 @@ export function CartFood({ userDefault, Icon, ...rest }) {
                     size={20}
                     onClick={() => handleClick(1)}
                   />
+                  <Button
+                    title={userDefault ? `Incluir ∙ R$ ${price}` : 'Editar prato'}
+                    onClick={() => {
+                      /* Implement add to cart functionality */
+                    }}
+                  />
                 </>
+              ) : (
+                <Button
+                  title="Editar prato"
+                  onClick={handleEditClick}
+                />
               )}
-              <Button
-                title={userDefault ? 'incluir ∙ R$ 25,00 ' : 'Editar prato'}
-                onClick={handleEditClick}
-              />
             </QuantityControl>
           </CardProductDetails>
         </CardProduct>
       </PageProduct>
 
-      <Footer classname="footer" />
+      <Footer className="footer" />
     </Container>
   )
 }
