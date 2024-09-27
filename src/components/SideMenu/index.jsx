@@ -25,7 +25,7 @@ export function SideMenu({ menuIsOpen, onCloseMenu }) {
             Icon={GrSearch}
           />
 
-          <a href="/login"> Sair</a>
+          <a href="/"> Sair</a>
         </Nav>
       </Menu>
     </Container>
