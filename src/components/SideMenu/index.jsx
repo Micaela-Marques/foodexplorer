@@ -3,8 +3,15 @@ import { Input } from '../Input'
 import { Button } from '../Button'
 import { GrSearch } from 'react-icons/gr'
 import { RiCloseLargeLine } from 'react-icons/ri'
+import { useNavigate } from 'react-router-dom'
 
 export function SideMenu({ menuIsOpen, onCloseMenu }) {
+  const navigate = useNavigate()
+
+  function handleNavigate() {
+    navigate('/')
+  }
+
   return (
     <Container data-menu-is-open={menuIsOpen}>
       <Menu>
@@ -25,7 +32,12 @@ export function SideMenu({ menuIsOpen, onCloseMenu }) {
             Icon={GrSearch}
           />
 
-          <a href="/"> Sair</a>
+          <a
+            href="/"
+            onClick={handleNavigate}
+          >
+            Sair
+          </a>
         </Nav>
       </Menu>
     </Container>
