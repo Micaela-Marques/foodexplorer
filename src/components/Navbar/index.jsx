@@ -1,9 +1,9 @@
-import { useState } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { MdOutlineLogout } from 'react-icons/md'
 import { GrSearch } from 'react-icons/gr'
 import { PiReceipt } from 'react-icons/pi'
 import { List } from '@phosphor-icons/react'
-
+import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../../hooks/auth'
 
 import {
@@ -19,30 +19,42 @@ import {
 import { Button } from '../Button'
 import { Input } from '../Input'
 import { SideMenu } from '../../components/SideMenu'
-import { drinksData } from '../../Pages/Home/Bebidas'
-import { snackData } from '../../Pages/Home/Refeições'
-import { dessertData } from '../../Pages/Home/Sobremesa'
 
 export function Navbar({ userDefault }) {
+  const navigate = useNavigate()
   const { signOut } = useAuth()
 
   const [menuIsOpen, setMenuIsOpen] = useState(false)
-  const [ search , setSearch] = useState("");
+  const [search, setSearch] = useState('')
+  const [debouncedSearch, setDebouncedSearch] = useState('')
 
+  const debounce = useCallback((func, delay) => {
+    let timeoutId
+    return (...args) => {
+      clearTimeout(timeoutId)
+      timeoutId = setTimeout(() => func(...args), delay)
+    }
+  }, [])
 
+  const debouncedSetSearch = useCallback(
+    debounce((value) => setDebouncedSearch(value), 300),
+    []
+  )
+
+  useEffect(() => {
+    debouncedSetSearch(search)
+  }, [search, debouncedSetSearch])
 
   function toggleMenu() {
     setMenuIsOpen((prevState) => !prevState)
   }
 
-  const handleSearch = () => {
-    const allProducts = [...drinksData, ...snackData, ...dessertData];
-    const products = allProducts.filter(product => 
-      product.title.toLowerCase().startsWith(search.toLowerCase())
-    );
-    return(products);
-  };
-
+  function handleNavigate() {
+    navigate('/admin/create')
+  }
+  function handleNavigateOrders() {
+    navigate('#')
+  }
 
   return (
     <Container>
@@ -54,9 +66,9 @@ export function Navbar({ userDefault }) {
         <Menu onClick={toggleMenu}>
           <List />
         </Menu>
-  
+
         {userDefault ? <ImageLogo /> : <AdminLogo />}
-  
+        {debouncedSearch}
         <InputWrapper>
           <Input
             className="input-search"
@@ -65,23 +77,21 @@ export function Navbar({ userDefault }) {
             Icon={() => <GrSearch />}
             value={search}
             onChange={(e) => {
-              setSearch(e.target.value);
-              handleSearch(); // Chama a busca toda vez que o input muda
+              setSearch(e.target.value)
             }}
           />
         </InputWrapper>
-        
-  
-  
+
         <BtnOrders>
           <Button
             className="btn-orders"
-            Icon={userDefault && (() => <PiReceipt size={32} />)}
+            Icon={userDefault ? () => <PiReceipt size={32} /> : null}
             title={userDefault ? 'Pedidos (0)' : 'Novo Prato'}
+            onClick={userDefault ? handleNavigateOrders : handleNavigate}
             type="button"
           />
         </BtnOrders>
-  
+
         <Logout>
           <button className="go-to-back">
             <MdOutlineLogout
@@ -94,4 +104,4 @@ export function Navbar({ userDefault }) {
       </Main>
     </Container>
   )
-}  
+}

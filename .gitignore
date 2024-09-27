@@ -22,3 +22,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+src/Pages/Home/Refeições.js
+src/Pages/Home/Refeições.js
+src/Pages/Home/Sobremesa.js
+src/Pages/Home/Bebidas.js
