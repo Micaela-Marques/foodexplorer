@@ -39,17 +39,22 @@ export function Carousel({ foods, userDefault }) {
 
   return (
     <Slider {...settings}>
-      {foods.map((food) => (
-        <FoodCard
-          key={food.id}
-          title={food.title}
-          description={food.description}
-          price={food.price}
-          icon={food.icon}
-          image={food.image}
-          userDefault={userDefault}
-        />
-      ))}
+      {Array.isArray(foods) && foods.length > 0 ? (
+        foods.map((food) => (
+          <FoodCard
+            key={food.id}
+            id={food.id}
+            title={food.name}
+            description={food.description}
+            price={food.price}
+            icon={food.icon}
+            image={food.image}
+            userDefault={userDefault}
+          />
+        ))
+      ) : (
+        <p>Sem itens para exibir</p>
+      )}
     </Slider>
   )
 }
