@@ -2,6 +2,11 @@
   <img alt="Projeto" src="Frame 5946.png" width="400" ">
 </p>
 
+---
+<p align="center">
+  Resultado final do desafio final do Explorer, o Food Explorer.
+</p>
+
 
 
 <!--  -->
