@@ -4,11 +4,6 @@
 </p>
 
 
-   
-  <img alt="Projeto" src="">
-
-
-
 <!--  -->
 <h1 align='center'>💻 Sobre</h1>
 <p>
