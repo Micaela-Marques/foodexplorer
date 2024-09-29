@@ -26,23 +26,23 @@ O repositório contém o Frontend em React.js e o Backend em Node.js.
    
 <p>Esse projeto foi desenvolvido com as seguintes tecnologias:</p>
 
--**React Router Dom**
--**React Router**
--**ReactJs**
--**Node.js**
--**Javascript**
--**Vite**
--**Express**
--**Nodemon**
--**SQLite**
--**Knex**
--**BCryptjs**
--**JSON Web Token**
--**Multer**
--**CORS**
--**Axios**
--**Styled Components**
--**React Icons**
+- **React Router Dom**
+- **React Router**
+- **ReactJs**
+- **Node.js**
+- **Javascript**
+- **Vite**
+- **Express**
+- **Nodemon**
+- **SQLite**
+- **Knex**
+- **BCryptjs**
+- **JSON Web Token**
+- **Multer**
+- **CORS**
+- **Axios**
+- **Styled Components**
+- **React Icons**
 
 
 
