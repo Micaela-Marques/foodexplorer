@@ -23,14 +23,14 @@ export function FoodCard({ id, title, description, price, icon: Icon, image, use
   }
 
   const handleEditClick = () => {
-    navigate(`/admin/new/${id}`)
+    navigate(`/new/${id}`)
   }
 
   const handleShowCart = async () => {
     navigate(`/cart/${id}`)
   }
 
-  
+  const imageUrl = image ? `${import.meta.env.VITE_API_URL}/files/${image}` : image
 
   return (
     <Content>
@@ -48,7 +48,7 @@ export function FoodCard({ id, title, description, price, icon: Icon, image, use
       <div>
         {image && (
           <img
-            src={image}
+            src={imageUrl}
             alt={title}
             style={imgCatalog}
           />
@@ -74,7 +74,10 @@ export function FoodCard({ id, title, description, price, icon: Icon, image, use
               size={20}
               onClick={() => handleClick(1)}
             />
-            <Button title="Incluir" onClick={handleShowCart} />
+            <Button
+              title="Incluir"
+              onClick={handleShowCart}
+            />
           </FoodCardFooter>
         )}
       </AddToCart>

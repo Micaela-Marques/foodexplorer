@@ -55,11 +55,15 @@ export function Navbar({ userDefault }) {
   }
 
   function handleNavigate() {
-    navigate('/admin/create');
+    navigate('/create');
   }
 
   function handleNavigateOrders() {
     navigate('#');
+  }
+
+  function returnHome() {
+    navigate('/');
   }
 
   return (
@@ -73,7 +77,7 @@ export function Navbar({ userDefault }) {
           <List />
         </Menu>
 
-        {userDefault ? <ImageLogo /> : <AdminLogo />}
+        {userDefault ? <ImageLogo onClick={returnHome} /> : <AdminLogo onClick={returnHome} />}
         <InputWrapper>
           <Input
             className="input-search"

@@ -36,7 +36,7 @@ export function CartFood({ userDefault, Icon, ...rest }) {
   }
 
   const handleEditClick = () => {
-    navigate(`/admin/edit/${id}`)
+    navigate(`/edit/${id}`)
   }
 
   useEffect(() => {
@@ -71,7 +71,7 @@ export function CartFood({ userDefault, Icon, ...rest }) {
 
         <CardProduct>
           <FoodImage
-            src={image}
+            src={`${import.meta.env.VITE_API_URL}/files/${image}`}
             alt={name || 'Food Image'}
           />
           <CardProductDetails>
@@ -101,7 +101,7 @@ export function CartFood({ userDefault, Icon, ...rest }) {
                     onClick={() => handleClick(1)}
                   />
                   <Button
-                    title={userDefault ? `Incluir ∙ R$ ${price}` : 'Editar prato'}
+                    title={`Incluir ∙ R$ ${price}`}
                     onClick={() => {
                       /* Implement add to cart functionality */
                     }}
