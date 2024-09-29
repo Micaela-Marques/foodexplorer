@@ -50,5 +50,5 @@ O repositório contém o Frontend em React.js e o Backend em Node.js.
   
   ---
   <h3 align="center">Projeto💻 </h3>
-  <p>Acesse o projeto em <a href="https://rocketnotes03.netlify.app"> site🌐
+  <p>Acesse o projeto em <a href=""> site🌐
   </p>
