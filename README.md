@@ -24,7 +24,8 @@ O repositório contém o Frontend em React.js e o Backend em Node.js.
 <h2 align='center'>🎨 Layout</h2>
 
 <img alt="Projeto" src="foodexplorer.png">
-
+---
+<img alt="Projeto" src="foodexplorerr.png">
 ---
 <h3 align="center">Tecnologias 🚀</h3>
    
