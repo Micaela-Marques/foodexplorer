@@ -1,12 +1,11 @@
 import { Routes, Route, useLocation } from 'react-router-dom'
 import { Home } from '../Pages/Home'
 import { CartFood } from '../Pages/CartFood'
-import { CreateFood } from '../Pages/CreateFood'
 import { Navbar } from '../components/Navbar'
 
-export function AppRoutes() {
+export function CustomerRoutes() {
   const location = useLocation()
-  const userDefault = !location.pathname.includes('admin')
+  const userDefault = true
   const isVisible = !['/login', '/register'].includes(location.pathname)
 
   return (
@@ -18,26 +17,14 @@ export function AppRoutes() {
           path="/"
           element={<Home userDefault={userDefault} />}
         />
-        <Route
-          path="/admin"
-          element={<Home userDefault={userDefault} />}
-        />
 
         <Route
           path="/cart/:id"
           element={<CartFood userDefault={userDefault} />}
         />
         <Route
-          path="/admin/new/:id"
-          element={<CartFood userDefault={userDefault} />}
-        />
-        <Route
-          path="/admin/create"
-          element={<CreateFood />}
-        />
-        <Route
-          path="/admin/edit/:id"
-          element={<CreateFood  />}
+          path="*"
+          element={<Home userDefault={userDefault} />}
         />
       </Routes>
     </>

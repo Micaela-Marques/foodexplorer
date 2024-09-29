@@ -21,7 +21,7 @@ export function Home({ userDefault }) {
       },
       {
         id: 2,
-        title: 'Sobremesas',
+        title: 'Sobremesa',
         foods: [],
         userDefault
       },

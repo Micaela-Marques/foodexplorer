@@ -5,16 +5,16 @@ export function Carousel({ foods, userDefault }) {
   const settings = {
     dots: true,
     infinite: true,
-    speed: 500,
+    speed: 400,
     slidesToShow: 3,
-    slidesToScroll: 4,
+    slidesToScroll: 1,
     variableWidth: true,
     responsive: [
       {
         breakpoint: 1024,
         settings: {
           slidesToShow: 4,
-          slidesToScroll: 3,
+          slidesToScroll: 1,
           infinite: true
         }
       },
@@ -22,7 +22,7 @@ export function Carousel({ foods, userDefault }) {
         breakpoint: 768,
         settings: {
           slidesToShow: 2,
-          slidesToScroll: 2,
+          slidesToScroll: 1,
           initialSlide: 1
         }
       },

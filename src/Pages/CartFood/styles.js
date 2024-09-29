@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import Dish from '../../assets/Dish.png'
 
 import { DEVICE_BREAKPOINTS } from '../../styles/deviceBreakpoints'
 
@@ -16,8 +15,7 @@ export const Container = styled.div`
   }
 `
 
-export const FoodImage = styled.div`
-  background-image: url(${Dish});
+export const FoodImage = styled.img`
   background-position: center;
   background-size: cover;
   height: 264px;
