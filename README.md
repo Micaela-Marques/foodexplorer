@@ -1,5 +1,5 @@
 <p align="center"> 
-  <img alt="Projeto" src="RocketNote.png">
+  <img alt="Projeto" src="">
 
 </p>
 
