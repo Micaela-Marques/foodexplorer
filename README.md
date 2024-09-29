@@ -10,7 +10,7 @@
 
 
 <!--  -->
-<h1 align=''center>💻 Sobre</h1>
+<h1 align='center'>💻 Sobre</h1>
 <p>
 O Food Explorer é um site voltado para a experiência de restaurantes, onde os usuários podem visualizar os pratos disponíveis e fazer buscas de forma prática e rápida. Em breve, mais funcionalidades serão adicionadas para melhorar ainda mais a interação e a navegação.
 
