@@ -38,12 +38,12 @@ O repositório contém o Frontend em React.js e o Backend em Node.js.
 - **Knex**
 - **BCryptjs**
 - **JSON Web Token**
-- **Multer*
-- **CORS*
-- **Axios*
-- **Styled Components*
-- **React Icons*
-- **slick-carousel*
+- **Multer**
+- **CORS**
+- **Axios**
+- **Styled Components**
+- **React Icons**
+- **slick-carousel**
 
 
 
