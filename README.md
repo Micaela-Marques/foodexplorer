@@ -1,5 +1,5 @@
 <p align="center"> 
-  <img alt="Projeto" src="foodexplorer.png">
+  <img alt="Projeto" src="Frame 5946.png">
 
 </p>
 
