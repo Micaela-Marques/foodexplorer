@@ -1,7 +1,7 @@
 <p align="center"> 
-  <img alt="Projeto" src="Frame 5946.png">
-
+  <img alt="Projeto" src="Frame 5946.png" width="400" height="300">
 </p>
+
 
 
 <!--  -->
