@@ -58,6 +58,10 @@ O repositório contém o Frontend em React.js e o Backend em Node.js.
 
 ---
 <h1 align="center"> ⏬ Baixando o projeto</h1>
+
+```bash
+$ git clone git@github.com:micaelamarques/FoodExplorer.git
+```
 ---
 <p>O Backend foi hospedado no render. Já o Frontend foi hospedado no Netlify.</p>
 
@@ -93,6 +97,6 @@ $ yarn dev
 
   
   ---
-  <h4 align="center">Projeto💻 </h4>
+  <h1 align="center">Projeto💻 </h1>
   <p>Acesse o projeto em <a href=""> site🌐
   </p>
