@@ -95,5 +95,5 @@ $ yarn dev
   
   ---
   <h1 align="center">Projeto💻 </h1>
-  <p>Acesse o projeto em <a href=""> site🌐
+  <p>Acesse o projeto em <a href="https://projectfoodexplorer.netlify.app"> site🌐
   </p>
