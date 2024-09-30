@@ -56,6 +56,21 @@ O repositório contém o Frontend em React.js e o Backend em Node.js.
 - **React Icons**
 - **slick-carousel**
 
+```bash
+# No BackEnd insira uma porta e um secret no arquivo .env vazio
+AUTH_SECRET=
+PORT=
+
+# Navegue até o diretório do BackEnd
+$ cd food-explorer-backend
+
+# Instale as dependências necessárias
+$ npm install
+
+# Agora inicie o servidor do BackEnd
+$ npm run dev
+```
+
 
 
   
