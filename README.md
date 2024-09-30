@@ -1,5 +1,5 @@
 <p align="center"> 
-  <img alt="Projeto" src="Frame 5946.png" width="400" ">
+ <img alt="Projeto" src="foodexplorer.png">
 </p>
 
 ---
@@ -23,9 +23,6 @@ O repositório contém o Frontend em React.js e o Backend em Node.js.
 
 <h1 align='center'>🎨 Layout</h1>
 
-<img alt="Projeto" src="foodexplorer.png">
-
----
 <p align="center"> 
   <img alt="Projeto" src="foodexplorerr.png">
 
