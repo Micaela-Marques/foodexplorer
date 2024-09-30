@@ -33,7 +33,7 @@ O repositório contém o Frontend em React.js e o Backend em Node.js.
 
 
 ---
-<h1>align="center">Tecnologias 🚀</h1>
+<h1align="center">Tecnologias 🚀</h1>
    
 <p>Esse projeto foi desenvolvido com as seguintes tecnologias:</p>
 
@@ -73,6 +73,15 @@ $ npm install
 # Agora inicie o servidor do BackEnd
 $ npm run dev ou
 $ yarn dev
+```
+---
+<h1> 🔐 Use a conta abaixo para logar como administrador: </h1>
+
+
+```
+  e-mail: admin@gmail.com
+  senha: 123456
+
 ```
 
 
