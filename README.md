@@ -4,7 +4,7 @@
 
 ---
 <p align="center">
-  Resultado final do desafio final do Explorer, o Food Explorer.
+  Resultado final do desafio Explorer, o Food Explorer.
 </p>
 
 
