@@ -57,6 +57,9 @@ O repositório contém o Frontend em React.js e o Backend em Node.js.
 - **slick-carousel**
 
 ---
+<p>O Backend foi hospedado no render. Já o Frontend foi hospedado no Netlify.</p>
+
+---
 <h1 align="center">🛠️ Executando o projeto</h1>
 
 ```bash
@@ -75,7 +78,7 @@ $ npm run dev ou
 $ yarn dev
 ```
 ---
-<h1> 🔐 Use a conta abaixo para logar como administrador: </h1>
+<h1 align="center"> 🔐 Use a conta abaixo para logar como administrador: </h1>
 
 
 ```
