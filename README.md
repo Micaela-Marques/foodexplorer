@@ -57,6 +57,8 @@ O repositório contém o Frontend em React.js e o Backend em Node.js.
 - **slick-carousel**
 
 ---
+<h1 align="center"> ⏬ Baixando o projeto</h1>
+---
 <p>O Backend foi hospedado no render. Já o Frontend foi hospedado no Netlify.</p>
 
 ---
