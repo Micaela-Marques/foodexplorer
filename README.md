@@ -21,7 +21,7 @@ O repositório contém o Frontend em React.js e o Backend em Node.js.
 
 </p>
 
-<h2 align='center'>🎨 Layout</h2>
+<h1 align='center'>🎨 Layout</h1>
 
 <img alt="Projeto" src="foodexplorer.png">
 
@@ -33,7 +33,7 @@ O repositório contém o Frontend em React.js e o Backend em Node.js.
 
 
 ---
-<h3 align="center">Tecnologias 🚀</h3>
+<h1>align="center">Tecnologias 🚀</h1>
    
 <p>Esse projeto foi desenvolvido com as seguintes tecnologias:</p>
 
@@ -57,7 +57,7 @@ O repositório contém o Frontend em React.js e o Backend em Node.js.
 - **slick-carousel**
 
 ---
-<h4 align="center">🛠️ Executando o projeto</h4>
+<h1 align="center">🛠️ Executando o projeto</h1>
 
 ```bash
 # No BackEnd insira uma porta e um secret no arquivo .env vazio
